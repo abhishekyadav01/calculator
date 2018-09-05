@@ -19,6 +19,7 @@ pipeline {
 			reportName: "Jacoco Report"
 		])
 		sh "./gradlew jacocoTestCoverageVerification"	
+		}
         }
     }
 }
