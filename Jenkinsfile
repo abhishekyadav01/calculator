@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh "./gradlew test"
             }
-	stage("Code Coverage")
+	stage("Code Coverage") {
 	    steps {
 		sh "./gradlew jacocoTestReport"
   		publisHTML (target: [
@@ -20,6 +20,6 @@ pipeline {
 		])
 		sh "./gradlew jacocoTestCoverageVerification"	
 		}
-        }
+          }
     }
 }
