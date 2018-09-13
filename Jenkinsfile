@@ -32,5 +32,20 @@ pipeline {
 		])
 		}
 	}
+	stage("Package") {
+	    steps {
+		sh "./gradlew build"
+		}
+	}
+	stage("Docker Build") {
+	    steps {
+		sh "docker build -t calculator ."
+		}
+	}
+	stage("Docker Push") {
+	    steps {
+		sh "docker push build01.centos.com/calculator"
+		}
+	}	
     }
 }
