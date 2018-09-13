@@ -39,12 +39,12 @@ pipeline {
 	}
 	stage("Docker Build") {
 	    steps {
-		sh "docker build -t calculator ."
+		sh "docker build -t build01.centos.com:5000/calculator ."
 		}
 	}
 	stage("Docker Push") {
 	    steps {
-		sh "docker push build01.centos.com/calculator"
+		sh "docker push build01.centos.com:5000/calculator"
 		}
 	}	
     }
